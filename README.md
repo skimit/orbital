@@ -6,9 +6,7 @@ Distribute private resources, such as machine learning models, through AWS.
 [Sputnik](https://github.com/pombredanne/sputnik/tree/master/sputnik) is a great library that 
 manages data packages for another library, e.g. trained models for a machine learning library. 
 However, Sputnik assumes packages will be hosted behind a webserver, which creates a fair bit of
-scaffolding work. We would like data packages to live on Amazon S3 instead. This library adds a 
-single function, `patch_sputnik`, which should be called before uploading or downloading a 
-Sputnik-managed resource.
+scaffolding work. We would like data packages to live on Amazon S3 instead. 
 
 ## Usage
 
@@ -53,18 +51,19 @@ metadata about the model, e.g.
 Then build the package for distribution:
 
 ```python
-import sputnik
+from orbital import sputnik
 
 package = sputnik.build("sputnik_sample")
 ```
 
+Note we do not import Sputnik directly, but through Orbital. This applies the patches needed to 
+use S3 as the storage layer.
+
 ### Publishing
 
 ```python
-from orbital import patch_sputnik
-import sputnik
+from orbital import sputnik
 
-patch_sputnik()
 sputnik.upload("myapp", "1.0.0", package.path)
 ```
 
@@ -72,10 +71,8 @@ This uploads the package to an S3 bucket. This can be public or private.
 
 ### Installation
 ```python
-from orbital import patch_sputnik
-import sputnik
+from orbital import sputnik
 
-patch_sputnik()
 sputnik.install("my_library", "1.0.0", "orbital_test_model==2.0.0")
 ```
 

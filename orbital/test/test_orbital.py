@@ -5,9 +5,8 @@ import time
 from shutil import rmtree
 
 import pytest
-import sputnik
 
-from orbital.orbital import patch_sputnik
+from orbital.orbital import sputnik
 
 logging.basicConfig(level=logging.INFO)
 
@@ -76,7 +75,6 @@ def test_upload_download_round_trip(package):
     and check contents
     :param package:
     """
-    patch_sputnik()
     sputnik.upload('myapp', '1.0.0', package.path,
                    data_path=INSTALL_DIR)
 

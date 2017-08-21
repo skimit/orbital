@@ -43,7 +43,7 @@ import json
 import logging
 import os
 
-import sputnik
+from orbital import sputnik # import from here to ensure sputnik is patched
 from boto.s3.connection import S3Connection
 from sputnik import Archive
 from sputnik import Cache
@@ -179,7 +179,7 @@ def patch_sputnik():
     """
     from boto.provider import Provider
     # this is what boto uses get credentials if they are not explicitly provided
-    # an exception will be raise if no credentials are provided
+    # an exception will be raised if no credentials are provided
     Provider('aws').get_credentials()
 
     sputnik.index.Index.update = _sputnik_index_update
