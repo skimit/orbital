@@ -8,6 +8,10 @@ manages data packages for another library, e.g. trained models for a machine lea
 However, Sputnik assumes packages will be hosted behind a webserver, which creates a fair bit of
 scaffolding work. We would like data packages to live on Amazon S3 instead. 
 
+##Installation
+
+`pip install sputnik-orbital`
+
 ## Usage
 
 Please refer to Sputnik"s README for full details on how to structure a package so it can be managed
