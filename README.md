@@ -106,3 +106,9 @@ AWS_ACCESS_KEY_ID=AAAA AWS_SECRET_ACCESS_KEY=BBB BUCKET="my_private_s3_bucket" p
 ```
 
 Alternatively, put the credentials in `~/.aws/credentials` or `~/.boto`.
+
+## Running tests
+
+```bash
+PYTHONPATH=. py.test
+```
