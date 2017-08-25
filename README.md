@@ -14,7 +14,7 @@ scaffolding work. We would like data packages to live on Amazon S3 instead.
 
 ## Usage
 
-Please refer to Sputnik"s README for full details on how to structure a package so it can be managed
+Please refer to Sputnik's README for full details on how to structure a package so it can be managed
 by Sputnik. Essentially, the process is:
 
 1. Create a resource (on machine A)
